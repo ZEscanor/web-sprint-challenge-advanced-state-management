@@ -1,4 +1,4 @@
-import {FETCH_START,FETCH_SUCCESS} from "../action/actions.js";
+import {FETCH_START,FETCH_SUCCESS,POST_FORM} from "../action/actions.js";
 
 const initialState = {
     smurf: [],
@@ -17,7 +17,14 @@ export const rootReducer = (state= initialState, action) => {
           return{
               ...state,
               isLoading:false,
-              smurf: action.payload
+              smurf: action.payload,
+          }
+          case POST_FORM:
+              console.log("HELLO WE HERE")
+          return{
+            
+              ...state,
+              smurf: [...state.smurf,action.payload],
           }
         default:
             return state;
